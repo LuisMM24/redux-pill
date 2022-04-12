@@ -1,0 +1,28 @@
+@use "../../assets/sass/variables" as v;
+
+.filterForm {
+  margin: 35px 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 35px;
+}
+
+input {
+  width: 17px;
+  height: 17px;
+}
+.labelCheckbox {
+  display: block;
+  text-transform: capitalize;
+}
+
+select {
+  padding: 5px;
+  background-color: v.$gray;
+  color: v.$lightBlack;
+  font-family: v.$primaryFont;
+  border: 2px solid white;
+  outline: none;
+  border-radius: 5px;
+}
