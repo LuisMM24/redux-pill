@@ -6,6 +6,9 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
+  main {
+    min-height: 50vh;
+  }
 }
 .noBtn {
   border: none;
