@@ -1,7 +1,7 @@
 import houseIcon from "../../assets/img/houseIcon.png";
 import "./header.scss";
 
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { InputSearch } from "../InputSearch/InputSearch";
 export const Header: React.FC = () => {
   const router = useNavigate();
@@ -13,6 +13,7 @@ export const Header: React.FC = () => {
         <h1 className="headerTitle">Housing FakeAPI</h1>
       </button>
       {pathname === "/dashboard" && <InputSearch />}
+      <Link to={"/login"}>Login</Link>
     </header>
   );
 };

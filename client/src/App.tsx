@@ -7,6 +7,7 @@ import { Header } from "./components/Header/Header";
 //redux
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { Login } from "./pages/Login/Login";
 
 //router
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Provider>
       </div>
