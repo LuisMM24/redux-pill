@@ -20,7 +20,11 @@ export const Header: React.FC = () => {
         <h1 className="headerTitle">Housing FakeAPI</h1>
       </button>
       {pathname === "/dashboard" && <InputSearch />}
-      {(!user.token && <Link to={"/login"}>Login</Link>) || (
+      {(!user.token && (
+        <Link className="logInLink" to={"/login"}>
+          Login
+        </Link>
+      )) || (
         <>
           <h3>{`${user.firstName} ${user.lastName}`}</h3>
           <button onClick={() => dispatch(signOut())}>Sign Out</button>
