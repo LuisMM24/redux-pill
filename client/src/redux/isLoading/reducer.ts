@@ -3,7 +3,7 @@ interface ILoading {
   payload: boolean;
 }
 
-const initialValue: boolean = true;
+const initialValue: boolean = false;
 
 export const reducer = (state: boolean = initialValue, action: ILoading) => {
   switch (action.type) {

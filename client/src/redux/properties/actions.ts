@@ -6,7 +6,6 @@ import { FILTERED_SEARCH, FIRST_SEARCH } from "./types";
 export const setFirstSearch = (value: string) => {
   return async (dispatch: Dispatch) => {
     const properties = await fetchProperties(`city=${value}`);
-
     return dispatch({
       type: FIRST_SEARCH,
       payload: {

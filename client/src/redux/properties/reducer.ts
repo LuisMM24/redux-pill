@@ -3,7 +3,7 @@ import * as types from "./types";
 
 const initialState: PropertieState = {
   inputSearch: "",
-  properties: [],
+  properties: null,
 };
 export const reducer = (
   state: PropertieState = initialState,

@@ -1,5 +1,9 @@
 import { InfinitySpin } from "react-loader-spinner";
 
-export const Loading: React.FC = () => {
-  return <InfinitySpin color="blue" width="150" />;
+interface Props {
+  width?: string;
+}
+
+export const Loading: React.FC<Props> = ({ width = "150" }) => {
+  return <InfinitySpin color="blue" width={width} />;
 };

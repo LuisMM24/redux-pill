@@ -38,9 +38,35 @@ interface FILTERED_SEARCH {
   payload: IPropertie[];
 }
 
+// action creators for user
+
+type ActionsUser = signIn;
+
+type signIn = {
+  type: "LOGIN";
+  payload: IUser;
+};
+interface IUser {
+  firstName: string;
+  lastName: string;
+  token: string;
+  email: string;
+  created_at?: string;
+  updated_at?: string;
+  id?: number;
+}
+
+interface IUserForm {
+  firstName?: string;
+  lastName?: string;
+  password: string;
+  email: string;
+  isRegistering?: boolean;
+}
+
 type PropertieState = {
   inputSearch: string;
-  properties: IPropertie[] | [];
+  properties: IPropertie[] | [] | null;
 };
 
 type HomeType = "house" | "flat/apartment" | "duplex" | "penthouse";

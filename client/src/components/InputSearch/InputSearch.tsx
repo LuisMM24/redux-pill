@@ -29,7 +29,9 @@ export const InputSearch: React.FC = () => {
 
   const handleSubmit = () => {
     if (inputValue === "") return console.log("input empty");
-    navigate(`/dashboard?city=${inputValue}`);
+    if (pathname === "/") {
+      navigate(`/dashboard?city=${inputValue}`);
+    }
     actions.setIsLoading(true);
     actions.setFirstSearch(inputValue);
   };
