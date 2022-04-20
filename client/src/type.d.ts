@@ -40,16 +40,22 @@ interface FILTERED_SEARCH {
 
 // action creators for user
 
-type ActionsUser = signIn;
+type ActionsUser = signIn | signOut;
 
 type signIn = {
   type: "LOGIN";
   payload: IUser;
 };
+
+type signOut = {
+  type: "LOGOUT";
+  payload: null;
+};
+
 interface IUser {
   firstName: string;
   lastName: string;
-  token: string;
+  token: string | null;
   email: string;
   created_at?: string;
   updated_at?: string;

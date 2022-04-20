@@ -36,6 +36,7 @@ export const Login: React.FC = () => {
 
   useEffect(() => {
     console.log(user);
+
     if (user.token) {
       dispatch(setIsLoading(false));
       navigate("/");

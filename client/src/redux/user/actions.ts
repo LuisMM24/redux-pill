@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 
-import { LOGIN } from "./types";
+import { LOGIN, LOGOUT } from "./types";
 
 import { fetchUser } from "../services/fetchUser";
 
@@ -12,5 +12,12 @@ export const signIn = (formValues: IUserForm, isRegistering: boolean) => {
       type: LOGIN,
       payload: user,
     });
+  };
+};
+
+export const signOut = () => {
+  return {
+    type: LOGOUT,
+    payload: null,
   };
 };

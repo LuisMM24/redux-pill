@@ -1,6 +1,6 @@
 import "./inputSearch.scss";
 // redux
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //actions
 import { setFirstSearch } from "../../redux/properties/actions";
 import { setIsLoading } from "../../redux/isLoading/reducer";
@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import glassIcon from "../../assets/img/glassIcon.png";
 import { bindActionCreators } from "redux";
 import { useState } from "react";
+import { RootState } from "../../redux/reducers";
 
 export const InputSearch: React.FC = () => {
   // router
@@ -20,6 +21,8 @@ export const InputSearch: React.FC = () => {
   const city = query.get("city");
 
   const [inputValue, setInputValue] = useState<string>(city ? city : "");
+  // redux state
+  const user = useSelector((state: RootState) => state.user);
   //redux hooks
   const dispatch = useDispatch();
   const actions = bindActionCreators(
@@ -28,6 +31,7 @@ export const InputSearch: React.FC = () => {
   );
 
   const handleSubmit = () => {
+    if (!user.token) return navigate("/login");
     if (inputValue === "") return console.log("input empty");
     if (pathname === "/") {
       navigate(`/dashboard?city=${inputValue}`);
