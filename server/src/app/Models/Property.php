@@ -10,7 +10,6 @@ class Property extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title',
         'street',
         'number',
         'city',
@@ -34,7 +33,14 @@ class Property extends Model
         'terrace',
         'publication_date'
     ];
-
+  // protected cast [booleans]
+    protected $casts = [
+        "garden"=>"boolean",
+        "pet"=>"boolean",
+        "terrace"=>"boolean",
+        "air_conditioning"=>"boolean",
+        "swimming_pool"=>"boolean",
+    ];
     public $timestamps = false;
 
     public function users() {

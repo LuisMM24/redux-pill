@@ -29,22 +29,20 @@ class AuthController extends BaseController
         $input["password"] = bcrypt($input["password"]);
 
         $user = User::create($input);
-
-        $success["token"] = $user->createToken("loginToken")->plainTextToken;
-        $success["fullName"] = "$user->firstName $user->lastName";
+        $user["token"] = $user->createToken("loginToken")->plainTextToken;
 
 
         
-        return $this->sendResponse($success,"User created",201);
+        return $this->sendResponse($user,"User created",201);
     }
 
     public function login(Request $request){
         if(Auth::attempt(["email"=>$request->email, "password"=>$request->password])){
             $authUser = Auth::user();
             $user = User::find($authUser->id);
-            $success["token"] = $user->createToken("loginToken")->plainTextToken;
-            $success["fullName"] = "$user->firstName $user->lastName";
-            return $this->sendResponse($success,"User logged",200);
+            $user["token"] = $user->createToken("loginToken")->plainTextToken;
+            
+            return $this->sendResponse($user,"User logged",200);
         }else{
             return $this->sendError("Error","Failed to authenticate",400);
         }
